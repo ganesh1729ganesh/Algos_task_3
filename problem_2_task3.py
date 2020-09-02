@@ -15,51 +15,22 @@ if  n == 1:# if n is 1 s0 the sum is the sum of all the strengths of tthe bricks
 
 
 if n == 2:
-    def possibleLists(lst): 
-  
-    # If lst is empty then there are no possible lists
-        if len(lst) == 0: 
-            return [] 
-  
-    # If there is only one element in lst then, only 
-    # one possible list exists
-        if len(lst) == 1: 
-            return [lst] 
-  
-    # Finding the possible lists for lst if there are 
-    # more than 1 characters 
-  
-        l = [] # empty list that will store current possible list 
-  
-    # Iterate the input(lst) and calculate the possible lists 
-        for i in range(len(lst)): 
-           m = lst[i] 
-  
-       # Extract lst[i] or m from the list.  remLst is 
-       # remaining list 
-           remLst = lst[:i] + lst[i+1:] 
-  
-       # Generating all possible lists  where m is first 
-       # element 
-           for p in possibleLists(remLst): # again using same function such that it might end up with len(lst) == 1 case, sort of recursion
-               l.append([m] + p) 
-        return l 
-  
+    
     data = arr
     last = []
     final = []
-    for p in possibleLists(data):#  Iterating over all the possible lists 
+    #for p in possibleLists(data):#  Iterating over all the possible lists 
        
-        temp = 0
-        tempsum = []
-        for i in range(len(p)): # the logic is to sum value of strengths upto a point and compare it with sum of all remaining strengths after the point
-            last.append(sum(p[0:i+1]))# storing all the sums upto a point p in a list 
+    temp = 0
+    tempsum = []
+    for i in range(len(data)): # the logic is to sum value of strengths upto a point and compare it with sum of all remaining strengths after the point
+        last.append(sum(data[0:i+1]))# storing all the sums upto a point p in a list 
         
-        for i in p:
-            temp += i #actual sum of all the strengths of brickss
+    for i in data:
+        temp += i #actual sum of all the strengths of brickss
 
-        for j in range(len(last)): 
-            tempsum.append(temp - last[j]) #deleting the sum of the strengths upto the point 
+    for j in range(len(last)): 
+        tempsum.append(temp - last[j]) #deleting the sum of the strengths upto the point 
                                             #from the total sum to get remaining sum of strengths of bricks after that point 
 
     test_list1 = tempsum
