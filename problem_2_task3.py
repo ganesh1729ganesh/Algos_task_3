@@ -48,9 +48,9 @@ if n == 2:
 
 
 """ TIME COMPLEXITY:
-                    = n^2+ n(3n) + n = 4n^2 + n
+                    = n*k loops
 
-                    = O(n^2)
+                    = O(n)
 
     SPACE COMPLEXITY:
                     it depends on two integers inputs + array of strengths
